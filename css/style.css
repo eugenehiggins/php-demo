@@ -1,0 +1,33 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+@media (min-width: 1200px)
+.container {
+    width: 750px;
+}
+@media (min-width: 992px)
+.container {
+    width: 750px;
+}
+@media (min-width: 768px)
+.container {
+    width: 750px;
+}
+
+#userlist {
+	list-style-type: none;
+}
+
+.navbar-header.active {
+	color: #fff;
+}
+
+.navbar-brand.active {
+    color: #fff;
+    background-color: #080808;
+}
