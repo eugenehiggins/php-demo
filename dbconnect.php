@@ -1,9 +1,12 @@
 <?php
-if(!$mysqli = new mysqli('127.0.0.1', 'root', 'crp5leez', 'php_demo'))
-{
-	die('Could not connect to database: '.mysql_error());
-	exit();
+$link = mysqli_connect("localhost", "root", "crp5leez", "php_demo");
+
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connection failed: %s\n", mysqli_connect_error());
+    exit();
 }
+
 
 // if(!mysql_select_db("users"))
 // {

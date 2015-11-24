@@ -1,32 +1,5 @@
-<?php
-
-$filename = explode(".", basename($_SERVER['PHP_SELF']))[0];
-
-$jquery = '
 
 
-';
-echo $jquery;
-
-function setActive($element, $filename) {
-
-	if ($element == $filename) {
-		return "active";
-	}
-}
-
-?> 
-  <script>
-  $( document ).ready(function() {
-    // console.log( "ready!" );
-});
-  </script>
-  <script>
-   
-
-    
-
-  </script>
   	<nav class="navbar navbar-inverse navbar-fixed-top">
   		<div class="container">
   			<div class="navbar-header">
