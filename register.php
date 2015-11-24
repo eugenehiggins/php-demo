@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-if(isset($_SESSION['user'])!="")
-{
-	//header("Location: index.php");
-}
+include_once 'includes/functions.php';
 
-include_once 'functions.php';
+include 'includes/dbconnect.php' ;
 
-$link = mysqli_connect("localhost", "root", "crp5leez", "php_demo");
+// $link = mysqli_connect("localhost", "root", "crp5leez", "php_demo");
 
 /* check connection */
 if (mysqli_connect_errno()) {
@@ -20,12 +17,12 @@ if (mysqli_connect_errno()) {
 if(isset($_POST['submit-btn']))
 {
 	// Get the values from the form fields
-	$firstname = mysqli_real_escape_string($link, $_POST['firstname']);
-	$lastname = mysqli_real_escape_string($link, $_POST['lastname']);
+	$first_name = mysqli_real_escape_string($link, $_POST['first_name']);
+	$last_name = mysqli_real_escape_string($link, $_POST['last_name']);
 	$email = mysqli_real_escape_string($link, $_POST['email']);
 
 	// Create the SQL command to send to the server
-	$sql = "INSERT INTO users(firstname,lastname,email) VALUES('$firstname','$lastname','$email')";
+	$sql = "INSERT INTO users(first_name,last_name,email) VALUES('$first_name','$last_name','$email')";
 
 	// If result is anything other than true then there's an error
 	if (mysqli_query($link, $sql)) {
@@ -42,6 +39,7 @@ if(isset($_POST['submit-btn']))
 			flash_message('alert alert-danger', 'That email already exists.');
 		} else {
 			// This is for all other errors. It is less friendly. It just prints the error message that the server returns"
+			echo $sql;
 			printf("Error: %s\n", mysqli_sqlstate($link));
 		}
 	}
@@ -55,11 +53,11 @@ if(isset($_POST['submit-btn']))
 
 <!DOCTYPE html>
 <html lang="en">
-	<?php include_once('head.php'); ?>
+	<?php include_once('includes/head.php'); ?>
 
   <body class="homepage">
 
-	<?php include('navbar.php'); ?>
+	<?php include('includes/navbar.php'); ?>
 
   	<div class="container">
 
@@ -78,11 +76,11 @@ if(isset($_POST['submit-btn']))
   		<form method="POST" action="">
   			<div class="form-group">
   				<label for="exampleInputEmail1">First name</label>
-  				<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Email">
+  				<input type="text" class="form-control" id="first_name" name="first_name" placeholder="Email">
   			</div>
   			<div class="form-group">
   				<label for="exampleInputEmail1">Last name</label>
-  				<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Email">
+  				<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Email">
   			</div>
   			<div class="form-group">
   				<label for="exampleInputEmail1">Email address</label>

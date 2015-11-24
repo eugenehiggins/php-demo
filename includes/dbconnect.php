@@ -7,9 +7,3 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-
-// if(!mysql_select_db("users"))
-// {
-// 	die('Databases "users" not found: '.mysql_error());
-// }
-?>

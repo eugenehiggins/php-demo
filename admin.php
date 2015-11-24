@@ -1,16 +1,9 @@
 <?php
-include('dbconnect.php');
+include 'includes/dbconnect.php' ;
 
-$sql = "SELECT `id`,`first_name`,`last_name`,`email` from `employees` LIMIT 200";
+$sql = "SELECT `id`,`first_name`,`last_name`,`email` from `users` LIMIT 200";
 
 $result = $link->query($sql); 
-
-
-//$link->close();
-
-
-
-
 
 // It always a good idea to close the link to the server/database when you are done
 // In big projects this can improve your site's performance
@@ -40,30 +33,7 @@ mysqli_close($link);
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
+    <?php include 'includes/navbar.php' ?>
 
     <div class="container-fluid">
       <div class="row">
