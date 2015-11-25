@@ -102,10 +102,10 @@ mysqli_close($link);
 					$count = 0;
 				    while($row = $result->fetch_assoc()) {
 				    	echo "<tr>";
-				        echo "<td> " . $row["id"] . "</td>";
-				        echo "<td> " . $row["first_name"] . "</td>";
-				        echo "<td> " . $row["last_name"] . "</td>";
-				        echo "<td> " . $row["email"] . "</td>";
+				        echo "<td> " . $row["id"] . "</td>\n";
+				        echo "<td> " . $row["first_name"] . "</td>\n";
+				        echo "<td> " . $row["last_name"] . "</td>\n";
+				        echo "<td> " . $row["email"] . "</td>\n";
 				        echo "</tr>";
 				    }
 				} else {

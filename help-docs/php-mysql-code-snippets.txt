@@ -1,0 +1,47 @@
+<?php 
+/*** Useful mysqli code snippets ***/
+/*** Taken from http://php.net/manual/en/mysqli.quickstart.php ***/
+
+/*** Connect to a database http://php.net/manual/en/mysqli.quickstart.connections.php *******************/
+
+// change user, password, and database to your own values
+$mysqli = new mysqli("localhost", "user", "password", "database");
+
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+} else {
+	echo "Connected!"
+}
+
+
+/*** Get data from a database ********************************/
+/*** Taken from http://php.net/manual/en/mysqli.quickstart.statements.php ***/
+
+$results = $mysqli->query("SELECT id, name FROM test ORDER BY id ASC");
+
+
+/*** Display results from a database ********************************/
+/*** Taken from http://php.net/manual/en/mysqli.quickstart.statements.php ***/
+
+for ($i = 0; $i <= $results->num_rows; $i++) {
+	
+	// This breaks the $results array down into individual rows
+	$row = $results->fetch_assoc();
+
+	// Print out each row
+	echo " id = " . $row['id'] . " " . $row['name'] . "\n";
+}
+
+
+/*** Insert data into a database ********************************/
+/*** Taken from http://php.net/manual/en/mysqli.quickstart.statements.php ***/
+
+$results = $mysqli->query("INSERT INTO test(id, name) VALUES (1, 'Grover')");
+
+
+/*** Upadate a record ********************************/
+
+$results = $mysqli->query("INSERT INTO test(id, name) VALUES (1, 'Grover')");
+UPDATE `users` SET `first_name`='Grover',`last_name`='Cleveland' WHERE id = 10001;
+
+?>
